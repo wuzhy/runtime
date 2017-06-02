@@ -60,12 +60,15 @@ func state(containerID string) error {
 	if err != nil {
 		return err
 	}
-	if running == false {
+
+	if running == false && state.Status == oci.StateRunning {
+		ccLog.Infof("process %d not running, set state as %q",
+			state.Pid, oci.StateStopped)
 		if err := stopContainer(status); err != nil {
 			return err
 		}
 
-		state.Status = "stopped"
+		state.Status = oci.StateStopped
 	}
 
 	stateJSON, err := json.Marshal(state)
