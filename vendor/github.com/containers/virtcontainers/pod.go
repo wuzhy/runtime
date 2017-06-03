@@ -633,12 +633,12 @@ func (p *Pod) startSetStates() error {
 
 // startVM starts the VM, ensuring it is started before it returns or issuing
 // an error in case of timeout. Then it connects to the agent inside the VM.
-func (p *Pod) startVM() error {
+func (p *Pod) startVM(netNsPath string) error {
 	vmStartedCh := make(chan struct{})
 	vmStoppedCh := make(chan struct{})
 
 	go func() {
-		p.network.run(p.config.NetworkConfig.NetNSPath, func() error {
+		p.network.run(netNsPath, func() error {
 			err := p.hypervisor.startPod(vmStartedCh, vmStoppedCh)
 			return err
 		})
@@ -816,11 +816,6 @@ func (p *Pod) setPodState(state State) error {
 		return err
 	}
 
-	return nil
-}
-
-// endSession makes sure to end the session properly.
-func (p *Pod) endSession() error {
 	return nil
 }
 

@@ -37,10 +37,9 @@
   revision = "0ebcfe7ea32d5516c88c4bdc3db7cf0b30c98c7e"
 
 [[projects]]
-  branch = "master"
   name = "github.com/containers/virtcontainers"
   packages = [".","pkg/cni","pkg/hyperstart","pkg/oci"]
-  revision = "d23b31719e42001bd91c1aa9a8f133e3974136fc"
+  revision = "24e95092dfec37f619f77696a8d6bfb75f5bffff"
 
 [[projects]]
   name = "github.com/davecgh/go-spew"
@@ -52,13 +51,19 @@
   branch = "master"
   name = "github.com/dlespiau/covertool"
   packages = ["pkg/cover"]
-  revision = "008c0ab1339d84959c927f52e3a0cd05cd3afe8f"
+  revision = "b82616d290e628437bc08b858b5ecb3d7fe9ea53"
 
 [[projects]]
   name = "github.com/docker/docker"
   packages = ["pkg/term","pkg/term/windows"]
   revision = "89658bed64c2a8fe05a978e5b87dbec409d57a0f"
   version = "v17.05.0-ce"
+
+[[projects]]
+  branch = "master"
+  name = "github.com/kubernetes-incubator/cri-o"
+  packages = ["pkg/annotations"]
+  revision = "a8848bc0283ddb0fe06f4c5095aab0ec9a79387d"
 
 [[projects]]
   branch = "master"
